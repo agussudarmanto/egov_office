@@ -1,0 +1,115 @@
+<?php
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+/**
+ * Controller dukungan
+ * @created on : Tuesday, 07-Apr-2015 05:01:50
+ * @author AGUS SUDARMANTO <agus.sudarmanto@gmail.com>
+ * Copyright 2015
+ *
+ *
+ */
+
+class dukungan extends MY_Controller
+{
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('dukungans');
+    }
+    public function index() {
+        $config = array('base_url' => site_url('kinerja/dukungan/index/'), 'total_rows' => $this->dukungans->count_all(), 'per_page' => $this->config->item('per_page'), 'uri_segment' => 3, 'num_links' => 9, 'use_page_numbers' => FALSE);
+        $this->pagination->initialize($config);
+        $data['total'] = $config['total_rows'];
+        $data['pagination'] = $this->pagination->create_links();
+        $data['number'] = $this->uri->segment(3) + 1;
+        $data['dukungans'] = $this->dukungans->get_all($config['per_page'], $this->uri->segment(3));
+        $this->template->render('dukungan/view', $data);
+    }
+    public function add() {
+        $data['dukungan'] = $this->dukungans->add();
+        $data['action'] = 'dukungan/save';
+           
+        $this->template->js_add('$(document).ready(func()$("#form_dukungan").parsley())', 'embed');
+        $this->template->render('dukungan/form', $data);
+    }
+    public function edit($id = '') {
+        if ($id != '') {
+            $data['dukungan'] = $this->dukungans->get_one($id);
+            $data['action'] = 'dukungan/save/' . $id;
+               
+            $this->template->js_add('$(document).ready(func()$("#form_dukungan").parsley())', 'embed');
+            $this->template->render('dukungan/form', $data);
+        } 
+        else {
+            $this->session->set_flashdata('notify', notify('Data tidak ditemukan', 'info'));
+            redirect(site_url('kinerja/dukungan'));
+        }
+    }
+    public function save($id = '') {
+        
+        $config = array(
+          array('field' => 'dukungan', 'label' => 'Dukungan', 'rules' => 'trim|xss_clean|required'),   
+        );
+        if (!$id) {
+            $this->form_validation->set_rules($config);
+            if (($this->form_validation->run() == TRUE)) {
+                if (($this->input->post())) {
+                    $this->dukungans->save();
+                    $this->session->set_flashdata('notify', notify('Data berhasil di simpan', 'success'));
+                    redirect(site_url('kinerja/dukungan'));
+                }
+            } 
+            else {
+                $this->add();
+            }
+        } 
+        else {
+            $this->form_validation->set_rules($config);
+            if (($this->form_validation->run() == TRUE)) {
+                if (($this->input->post())) {
+                    $this->dukungans->update($id);
+                    $this->session->set_flashdata('notify', notify('Data berhasil di update', 'success'));
+                    redirect(site_url('kinerja/dukungan'));
+                }
+            } 
+            else {
+                $this->edit($id);
+            }
+        }
+    }
+    public function show($id = '') {
+        if ($id != '') {
+            $data['dukungan'] = $this->dukungans->get_one($id);
+            $this->template->render('dukungan/show', $data);
+        } 
+        else {
+            $this->session->set_flashdata('notify', notify('Data tidak ditemukan', 'info'));
+            redirect(site_url('kinerja/dukungan'));
+        }
+    }
+    public function search() {
+        if ($this->input->post('q')) {
+            $keyword = $this->input->post('q');
+            $this->session->set_userdata(array('keyword' => $this->input->post('q', TRUE)));
+        }
+        $config = array('base_url' => site_url('kinerja/dukungan/search/'), 'total_rows' => $this->dukungans->count_all_search(), 'per_page' => $this->config->item('per_page'), 'uri_segment' => 3, 'num_links' => 9, 'use_page_numbers' => FALSE);
+        $this->pagination->initialize($config);
+        $data['total'] = $config['total_rows'];
+        $data['number'] = $this->uri->segment(3) + 1;
+        $data['pagination'] = $this->pagination->create_links();
+        $data['dukungans'] = $this->dukungans->get_search($config['per_page'], $this->uri->segment(3));
+        $this->template->render('dukungan/view', $data);
+    }
+    public function destroy($id) {
+        if ($id) {
+            $this->dukungans->destroy($id);
+            $this->session->set_flashdata('notify', notify('Data berhasil di hapus', 'success'));
+            redirect(site_url('kinerja/dukungan'));
+        } 
+        else {
+            $this->session->set_flashdata('notify', notify('Data tidak ditemukan', 'warning'));
+            redirect(site_url('kinerja/dukungan'));
+        }
+    }
+}
+?>
