@@ -1,7 +1,7 @@
 ## APDUL
 
 Aplikasi Data Usulan Satya Lencana Mahkamah Agung RI  
-versi 0.1 - © 2020 Mahkamah Agung RI  
+versi 0.1 
   
 ### Deskripsi
 Aplikasi Data Usulan Satya Lencana atau disingkat APDUL merupakan aplikasi yang digunakan untuk mengelola data usulan penghargaan Satya Lencana. APDUL versi 0.1 dapat menampilkan data dan dokumen elektronik pegawai yang diusulkan penghargaan, dokumen elektronik yang ditampilkan pada aplikasi ini yaitu:
