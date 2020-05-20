@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Sistem Informasi Data Usulan Satya Lencana MA-RI">
+    <meta name="author" content="Agus Sudarmanto, S.Kom. (agus.sudarmanto@gmail.com)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APDUL : Sistem Informasi Data Usulan Satya Lencana Mahkamah Agung RI v.0.1</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="assets/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="assets/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/apps.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">APDUL</a>
+            <div class="apps-detail">Aplikasi Data Usulan Satya Lencana Mahkamah Agung RI v.0.1</div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fa fa-address-card"></i> Data Usulan<span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal-bantuan"><i
+                                class="fa fa-question"></i> Bantuan</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        <div class="container">
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <!-- Data table -->
+            <table id="myTable" class="table table-striped table-bordered nowrap" style="width:100%"></table>
+
+            <!-- Data Modal dialog -->
+            <div class="modal fade bd-example-modal-xl" id="myModal" tabindex="-1" role="dialog"
+                aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Detil Usulan</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-4 insertHere"></div>
+                                <div class="col-8">
+                                    <div class="bd-example bd-example-tabs">
+                                        <nav>
+                                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                <a class="nav-item nav-link active show" id="nav-drh-tab"
+                                                    data-toggle="tab" href="#nav-drh" role="tab" aria-controls="nav-drh"
+                                                    aria-selected="true">DRH</a>
+                                                <a class="nav-item nav-link" id="nav-cpns-tab" data-toggle="tab"
+                                                    href="#nav-cpns" role="tab" aria-controls="nav-cpns"
+                                                    aria-selected="true">CPNS</a>
+                                                <a class="nav-item nav-link" id="nav-pns-tab" data-toggle="tab"
+                                                    href="#nav-pns" role="tab" aria-controls="nav-pns"
+                                                    aria-selected="true">PNS</a>
+                                                <a class="nav-item nav-link" id="nav-jabatan-tab" data-toggle="tab"
+                                                    href="#nav-jabatan" role="tab" aria-controls="nav-jabatan"
+                                                    aria-selected="true">Jabatan</a>
+                                                <a class="nav-item nav-link" id="nav-pangkat-tab" data-toggle="tab"
+                                                    href="#nav-pangkat" role="tab" aria-controls="nav-pangkat"
+                                                    aria-selected="true">Pangkat</a>
+                                            </div>
+                                        </nav>
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade active show" id="nav-drh" role="tabpanel"
+                                                aria-labelledby="nav-drh-tab">
+                                                <p><iframe src="pdf/1/DRH.pdf" style="width:100%; height:400px;"
+                                                        frameborder="0"></iframe></p>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-cpns" role="tabpanel"
+                                                aria-labelledby="nav-cpns-tab">
+                                                <p><iframe src="pdf/1/CPNS.pdf" style="width:100%; height:400px;"
+                                                        frameborder="1"></iframe></p>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-pns" role="tabpanel"
+                                                aria-labelledby="nav-pns-tab">
+                                                <p><iframe src="pdf/1/PNS.pdf" style="width:100%; height:400px;"
+                                                        frameborder="0"></iframe></p>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-jabatan" role="tabpanel"
+                                                aria-labelledby="nav-jabatan-tab">
+                                                <p><iframe src="pdf/1/JAB.pdf" style="width:100%; height:400px;"
+                                                        frameborder="0"></iframe></p>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-pangkat" role="tabpanel"
+                                                aria-labelledby="nav-pangkat-tab">
+                                                <p><iframe src="pdf/1/PANGKAT.pdf" style="width:100%; height:400px;"
+                                                        frameborder="0"></iframe></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bantuan Modal dialog -->
+            <div class="modal fade bd-example-modal-xl" id="myModal-bantuan" tabindex="-1" role="dialog"
+                aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title"><i class="fa fa-question"></i> Bantuan</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>APDUL</h5>
+                            Aplikasi Data Usulan Satya Lencana Mahkamah Agung RI<br>
+                            versi 0.1 - &copy; 2020 Mahkamah Agung RI<br><br>
+                            <p>
+                                Aplikasi Data Usulan Satya Lencana atau disingkat APDUL merupakan aplikasi yang
+                                digunakan untuk mengelola data usulan penghargaan Satya Lencana. APDUL versi 0.1 dapat
+                                menampilkan data dan dokumen elektronik pegawai yang diusulkan penghargaan, dokumen
+                                elektronik yang ditampilkan pada aplikasi ini yaitu:
+                                <ul>
+                                    <li>DRH</li>
+                                    <li>SK CPNS</li>
+                                    <li>SK PNS</li>
+                                    <li>SK JABATAN</li>
+                                    <li>SK PANGKAT</li>
+                                </ul>
+                            </p>
+                            <br>
+                            <h6>Kontribusi</h6>
+                            <span>
+                                Aplikasi ini merupakan aplikasi Open source, Anda dapat
+                                bergabung untuk pengembangan dan
+                                saran masukan di: <a
+                                    href="https://github.com/agussudarmanto/egov_office">https://github.com/agussudarmanto/egov_office</a><br>
+                                MIT License<br>
+                                Agus Sudarmanto &lt;agus.sudarmanto@gmail.com&gt;<br>
+                            </span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            <br>
+            <p class="float-right"><a href="#">Kembali ke atas</a></p>
+            <p>&copy; 2020 Mahkamah Agung RI &middot; <a href="#">Privasi</a> &middot; <a href="#">Daftar istilah</a>
+            </p>
+        </footer>
+    </main>
+    <!-- LIbraries -->
+    <script src="assets/jquery-3.5.1.slim.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/popper.min.js"></script>
+    <script src="assets/jquery.dataTables.min.js"></script>
+    <script src="assets/dataTables.responsive.min.js"></script>
+    <script src="assets/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/responsive.bootstrap4.min.js"></script>
+
+    <!-- Apps assets -->
+    <script src="assets/dataset.js"></script>
+    <script src="assets/files.js"></script>
+    <script src="assets/apps.js"></script>
+</body>
+
+</html>
