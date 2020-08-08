@@ -1,0 +1,32 @@
+/.vscode
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+composer.lock
+composer*
+/composer*
+
+# biar ga naik terus ni composer.lock
+/composer.lock
+
+# Mac DS_Store Files
+.DS_Store
+
+.DS_Store
+
+node_modules
+
+lib/core/metadata.js
+lib/core/MetadataBlog.js
+
+website/translated_docs
+website/build/
+website/yarn.lock
+website/node_modules
+website/i18n/*
