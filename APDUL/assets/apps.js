@@ -44,29 +44,19 @@ $(document).ready(function () {
         "</td></tr></tbody></table>"
     );
     $("#nav-drh").html(
-      '<iframe src="pdf/' +
-        data[0] +
-        '/DRH.pdf" style="width:100%; height:400px;" frameborder="0"></iframe>'
+      '<object id="pdf_content" width="100%" height="400px" type="application/pdf" trusted="yes" application="yes" title="Assembly" data="pdf/' + data[0] + '/DRH.pdf#zoom=70&scrollbar=1&toolbar=1&navpanes=1"><p>Maaf, PDF tidak dapat ditampilkan, cek kembali file Anda.</p></object>'
     );
     $("#nav-cpns").html(
-      '<iframe src="pdf/' +
-        data[0] +
-        '/CPNS.pdf" style="width:100%; height:400px;" frameborder="0"></iframe>'
+      '<object id="pdf_content" width="100%" height="400px" type="application/pdf" trusted="yes" application="yes" title="Assembly" data="pdf/' + data[0] + '/CPNS.pdf#zoom=70&scrollbar=1&toolbar=1&navpanes=1"><p>Maaf, PDF tidak dapat ditampilkan, cek kembali file Anda.</p></object>'
     );
     $("#nav-pns").html(
-      '<iframe src="pdf/' +
-        data[0] +
-        '/PNS.pdf" style="width:100%; height:400px;" frameborder="0"></iframe>'
+      '<object id="pdf_content" width="100%" height="400px" type="application/pdf" trusted="yes" application="yes" title="Assembly" data="pdf/' + data[0] + '/PNS.pdf#zoom=70&scrollbar=1&toolbar=1&navpanes=1"><p>Maaf, PDF tidak dapat ditampilkan, cek kembali file Anda.</p></object>'
     );
     $("#nav-jabatan").html(
-      '<iframe src="pdf/' +
-        data[0] +
-        '/JAB.pdf" style="width:100%; height:400px;" frameborder="0"></iframe>'
+      '<object id="pdf_content" width="100%" height="400px" type="application/pdf" trusted="yes" application="yes" title="Assembly" data="pdf/' + data[0] + '/JAB.pdf#zoom=70&scrollbar=1&toolbar=1&navpanes=1"><p>Maaf, PDF tidak dapat ditampilkan, cek kembali file Anda.</p></object>'
     );
     $("#nav-pangkat").html(
-      '<iframe src="pdf/' +
-        data[0] +
-        '/PANGKAT.pdf" style="width:100%; height:400px;" frameborder="0"></iframe>'
+      '<object id="pdf_content" width="100%" height="400px" type="application/pdf" trusted="yes" application="yes" title="Assembly" data="pdf/' + data[0] + '/PANGKAT.pdf#zoom=70&scrollbar=1&toolbar=1&navpanes=1"><p>Maaf, PDF tidak dapat ditampilkan, cek kembali file Anda.</p></object>'
     );
     $("#myModal").modal("show");
     $("#nav-drh-tab").trigger("click");
